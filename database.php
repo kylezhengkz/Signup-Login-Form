@@ -1,15 +1,17 @@
 <?php
-    $db_server = "localhost";
-    $db_user = "root";
-    $db_pass = "";
-    $db_name = "mydb";
-    $conn = "";
 
-    $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
+$host = "localhost";
+$dbname = "login_db";
+$username = "root";
+$password = "";
 
-    if ($conn) {
-        echo"You are connected";
-    } else {
-        echo"Could not connect";
-    }
-?>
+$mysqli = new mysqli(hostname: $host,
+                     username: $username,
+                     password: $password,
+                     database: $dbname);
+                     
+if ($mysqli->connect_errno) {
+    die("Connection error: " . $mysqli->connect_error);
+}
+
+return $mysqli;
